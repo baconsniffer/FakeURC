@@ -10,12 +10,13 @@ During development I had some medical issues and required surgery. After
 a period of recovery I was able to work again but did not have the physical
 strength nor the ability to drive myself to and from work for some time.
 
-I had my laptop at home but there was no way I would be able to bring the
-radio and associated test gear home to continue work on the project.
+Fortunately I was able to work on other projects but I bothered me that
+I couldn't continue on the remote control interface.
 Then I had a thought: I don't need the radio, just it's interface.
 The protocol for communicating with the radio is well documented so why
 couldn't I just make an emulator that spoke the protocol and responded
-as the radio would.
+as the radio would. So I decided that in my after-hours time, I would
+work on an emulator and maybe learn something new in the process.
 
 Since the interface was relatively simple and the serial speed very slow
 (1200 baud!) an Arduino microcontroller would be ideal since it has
@@ -26,9 +27,14 @@ I coded a basic emulator that ran on a Uno R3 and it worked great. The only
 drawback was that I had no way of being certain that the commands I sent
 to the emulated radio were actually having an effect since there was no
 way to examine the memory state of the Arduino while it was running.
+Conversely, there was no easy way I could think of to allow modification to
+the state of the radio (mic keyed, incoming transmission, squelch level
+adjustment, etc). I thought about hooking up some switches and a potentiometer
+or two but then I'd have a big, ugly breadboard and still not have the level
+fidelity I wanted.
 
-Fortunately I also had a Arduino Mega2560 with an LCD screen that I had
-picked up on an Amazon deal and had stashed away thinking "This is too
+Fortunately I also had a Arduino Mega2560 with an big TFT LCD screen that
+I had picked up on an Amazon deal and had stashed away thinking "This is too
 good a deal to pass up and I will find some use for it one day". That
 day had arrived.
 
