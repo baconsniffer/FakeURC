@@ -1,22 +1,22 @@
-
-#include <EEPROM.h>
-#include <memorysaver.h>
-#include <UTFT.h>
-#include "URCFont.c"
+// URC-200 Radio Emulator for Arduino by Paul Jenkins
+#include <EEPROM.h>                // Built-in library
+#include <memorysaver.h>           // Part of UTFT
+#include <UTFT.h>                  // LCD interface library
+#include "URCFont.c"               // Custom font used for 7-segment characters
 
 #define BAUD  1200                  //Change to 1200 for production code
 #define EEPROMSTART 256
 #define SIG1  '5'
-#define SIG2  'A'					//Set to other than 'A' to force re-config
-#define SER_TIMEOUT 1000			//Serial read timeout (2000 is a guess)
-#define ACK   6						//Response codes from radio
-#define NAK   21					//The radio sends one of these three codes
-#define HT    9						//after the response to all commands (even invalid ones)
+#define SIG2  'A'                   //Set to other than 'A' to force re-config
+#define SER_TIMEOUT 1000            //Serial read timeout (2000 is a guess)
+#define ACK   6	                    //Response codes from radio
+#define NAK   21                    //The radio sends one of these three codes
+#define HT    9                     //after the response to all commands (even invalid ones)
 
 // Declare which fonts we will be using
 extern uint8_t SmallFont[];         //Almost everything
 extern uint8_t BigFont[];           //Splash screen
-//extern uint8_t URCLCDFont[];   //Frequency display
+//extern uint8_t URCLCDFont[];      //Frequency display
 extern uint8_t SevenSegNumFont[];   //Frequency display
 
 //
@@ -49,7 +49,6 @@ char      beaconMode;                 //'1' = radio in beacon mode
 char      keyed;                      //'1' = Tx keyed (RF is emitting), '0' = Rx (no RF radiated)
 char      spkr;                       //Current state of speaker, '1' = enabled, '0' = muted
 char      NVspkr;                     //Speaker state saved in NVRAM (EEPROM), default = '0'
-
 
 // End Global variables
 // ------------------------------------------------------------
